@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: community-impact-chatbot
+    env: docker
+    dockerfilePath: ./Dockerfile
+    buildCommand: docker build -t community-impact-chatbot .
+    startCommand: docker run -p $PORT:3000 community-impact-chatbot
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        sync: false
+    autoDeploy: true
+    healthCheckPath: /
+    plan: free

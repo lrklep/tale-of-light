@@ -38,6 +38,15 @@ const storyRoutes = require('./api/generate-story');
 app.use('/api', chatRoutes);
 app.use('/api', storyRoutes);
 
+// Health check endpoint for Render.com
+app.get('/health', (req, res) => {
+    res.status(200).json({
+        status: 'healthy',
+        timestamp: new Date().toISOString(),
+        uptime: process.uptime()
+    });
+});
+
 // Serve frontend - Fixed wildcard route (Express v5 compatible)
 app.get('/*path', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
