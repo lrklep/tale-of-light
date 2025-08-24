@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Impact Chronicles - Valdris's Chamber</title>
+    <link rel="stylesheet" href="styles/dark-fantasy.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Community Impact Chronicles</h1>
+            <p class="subtitle">Where Valdris, the Chronicler, Documents Your Realm's Needs</p>
+        </header>
+
+        <main>
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h2 class="chat-title">The Chronicler's Interview Chamber</h2>
+                </div>
+                
+                <div class="messages-container" id="messagesContainer">
+                    <div class="message bot">
+                        <p>Greetings, traveler. I am Valdris, keeper of community chronicles. I have been summoned to document the struggles and triumphs of your realm. Tell me, what challenges does your community face? What needs attention in your domain?</p>
+                    </div>
+                </div>
+                
+                <div class="input-container">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Share your community's story..." maxlength="500">
+                    <button class="send-button" id="sendButton">Send</button>
+                </div>
+            </div>
+
+            <div class="story-generator">
+                <h3 class="chat-title">Generate Your Impact Chronicle</h3>
+                <p>Once our interview is complete, Valdris can forge your story into a powerful chronicle:</p>
+                <div style="text-align: center; margin: 20px 0;">
+                    <button class="generate-button" id="generateBlog">Forge Blog Chronicle</button>
+                    <button class="generate-button" id="generateFlyer">Create Proclamation Flyer</button>
+                </div>
+                <div class="story-output" id="storyOutput" style="display: none;"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="scripts/chatbot.js"></script>
+</body>
+</html>
