@@ -30,6 +30,14 @@ app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.static('public'));
 
+// Basic health check endpoint
+app.get('/', (req, res) => {
+    res.status(200).json({
+        status: 'ok',
+        message: 'Server is running'
+    });
+});
+
 // Import API routes
 const chatRoutes = require('./api/chat');
 const storyRoutes = require('./api/generate-story');
