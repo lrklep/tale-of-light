@@ -5,42 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community Impact Chronicles - Valdris's Chamber</title>
     <link rel="stylesheet" href="styles/dark-fantasy.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
+    <!-- Background particles -->
+    <div class="particles" id="particles"></div>
+    
     <div class="container">
         <header class="header">
+            <div class="header-decoration"></div>
             <h1 class="title">Community Impact Chronicles</h1>
             <p class="subtitle">Where Valdris, the Chronicler, Documents Your Realm's Needs</p>
+            <div class="header-decoration"></div>
         </header>
 
         <main>
+            <!-- Status indicator -->
+            <div class="status-indicator" id="statusIndicator">
+                <span class="status-dot"></span>
+                <span class="status-text">Valdris awaits your story</span>
+            </div>
+
+            <!-- Chat interface -->
             <div class="chat-container">
                 <div class="chat-header">
-                    <h2 class="chat-title">The Chronicler's Interview Chamber</h2>
+                    <div class="avatar">
+                        <div class="avatar-icon">🧙‍♂️</div>
+                        <div class="avatar-status"></div>
+                    </div>
+                    <div class="header-content">
+                        <h2 class="chat-title">The Chronicler's Interview Chamber</h2>
+                        <p class="chat-subtitle">Speak, and let your community's voice be heard</p>
+                    </div>
                 </div>
                 
                 <div class="messages-container" id="messagesContainer">
                     <div class="message bot">
-                        <p>Greetings, traveler. I am Valdris, keeper of community chronicles. I have been summoned to document the struggles and triumphs of your realm. Tell me, what challenges does your community face? What needs attention in your domain?</p>
+                        <div class="message-avatar">⚡</div>
+                        <div class="message-content">
+                            <p>Greetings, traveler. I am Valdris, keeper of community chronicles. The ancient tomes have brought me word that you seek to document the struggles and triumphs of your realm.</p>
+                            <p>Tell me, what shadows of challenge loom over your community? What needs cry out for attention in your domain? Speak freely, for every voice matters in the grand tapestry of change.</p>
+                        </div>
+                        <div class="message-time">Just now</div>
                     </div>
                 </div>
                 
                 <div class="input-container">
-                    <input type="text" class="chat-input" id="chatInput" placeholder="Share your community's story..." maxlength="500">
-                    <button class="send-button" id="sendButton">Send</button>
+                    <div class="input-wrapper">
+                        <textarea 
+                            class="chat-input" 
+                            id="chatInput" 
+                            placeholder="Share your community's story with Valdris..." 
+                            maxlength="1000"
+                            rows="1"
+                        ></textarea>
+                        <button class="send-button" id="sendButton" title="Send Message">
+                            <span class="button-icon">⚡</span>
+                            <span class="button-text">Send</span>
+                        </button>
+                    </div>
+                    <div class="character-count" id="characterCount">0/1000</div>
                 </div>
             </div>
 
-            <div class="story-generator">
-                <h3 class="chat-title">Generate Your Impact Chronicle</h3>
-                <p>Once our interview is complete, Valdris can forge your story into a powerful chronicle:</p>
-                <div style="text-align: center; margin: 20px 0;">
-                    <button class="generate-button" id="generateBlog">Forge Blog Chronicle</button>
-                    <button class="generate-button" id="generateFlyer">Create Proclamation Flyer</button>
+            <!-- Story generator section -->
+            <div class="story-generator" id="storyGenerator">
+                <div class="generator-header">
+                    <h3 class="generator-title">Generate Your Impact Chronicle</h3>
+                    <p class="generator-description">
+                        Once our interview reveals the depths of your community's needs, Valdris can weave your words into a powerful chronicle that will rally others to your cause.
+                    </p>
                 </div>
-                <div class="story-output" id="storyOutput" style="display: none;"></div>
+                
+                <div class="generator-buttons">
+                    <button class="generate-button blog-button" id="generateBlog">
+                        <span class="button-icon">📜</span>
+                        <span class="button-content">
+                            <span class="button-title">Forge Blog Chronicle</span>
+                            <span class="button-subtitle">Detailed narrative for online sharing</span>
+                        </span>
+                    </button>
+                    
+                    <button class="generate-button flyer-button" id="generateFlyer">
+                        <span class="button-icon">📋</span>
+                        <span class="button-content">
+                            <span class="button-title">Create Proclamation Flyer</span>
+                            <span class="button-subtitle">Concise call-to-action for distribution</span>
+                        </span>
+                    </button>
+                </div>
+                
+                <div class="story-output" id="storyOutput" style="display: none;">
+                    <div class="output-header">
+                        <h4 class="output-title" id="outputTitle">Your Chronicle</h4>
+                        <div class="output-actions">
+                            <button class="copy-button" id="copyButton" title="Copy to Clipboard">
+                                <span>📋</span>
+                            </button>
+                            <button class="close-button" id="closeOutput" title="Close">
+                                <span>✕</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="output-content" id="outputContent"></div>
+                </div>
             </div>
         </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by Valdris's ancient wisdom and mystical AI forces</p>
+        </footer>
     </div>
 
     <script src="scripts/chatbot.js"></script>
